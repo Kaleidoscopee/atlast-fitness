@@ -1,5 +1,6 @@
 const express = require('express')  //this imports express to make a server
 const dotenv = require('dotenv').config() //imports .env
+const {errorHandler} = require('./middleware/errorMiddleware') //imports middleware 
 const port = process.env.PORT || 3000 //variable holding the port number to listen for(now grabbing from env file OR 3000)
 
 const app = express() //makes the instance of the express server that was imported on line 1
@@ -12,6 +13,7 @@ app.use(express.urlencoded({ extended: false })) //similar to above but for urlE
 app.use('/atlastRB', require('./routes/atlastRoutes')) //makes the route atlastRB
                                                        //& require is like an import so it's looking in the routes folder and then that file (atlastRoutes)
 
+app.use(errorHandler) //use function in errorMiddleware file
 
 //PORT 3000
 app.listen(port, () => console.log       
