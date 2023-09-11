@@ -20,9 +20,9 @@ const { atlastGET } = require('../controllers/atlastController') //inside the co
 //     res.status(200).json({ message:`Delete ${req.params.id}` })  
 // })
 
-// Making the routes Dynamic and clean
+// Making the Routes Dynamic and clean
 // GET = R(Read) 
-router.get('/', atlastGET) //replaced entire funtion from original route with atlastGET 
+router.get('/', atlastGET) //replaced entire funtion from original route with atlastGET (functionality of the function is now in the controller file atlastContoller.js)
 // POST = C(Create)
 router.post('/', (req, res) => {  
     res.status(200).json({ message:'Create a Workout'})  
