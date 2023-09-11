@@ -27,7 +27,7 @@ const deleteWorkout = (req, res) => {
 }
 
 
-//exporting atlastGET above
+//exporting all functions put into variables above inside {} below
 module.exports = {    
     getWorkout,
     setWorkout,
