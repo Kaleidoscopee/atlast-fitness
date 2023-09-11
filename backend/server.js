@@ -5,7 +5,8 @@ const port = process.env.PORT || 3000 //variable holding the port number to list
 const app = express() //makes the instance of the express server that was imported on line 1
 
 //  MIDDLEWARE
-
+app.use(express.json()) //changes JSON coming in from the server into usable JavaScript
+app.use(express.urlencoded({ extended: false })) //similar to above but for urlEncoded
 
 //Middleware forcing the routes to include /atlastRB first before the rest of the route
 app.use('/atlastRB', require('./routes/atlastRoutes')) //makes the route atlastRB

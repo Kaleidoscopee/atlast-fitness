@@ -8,7 +8,11 @@ const getWorkout = (req, res) => {
 // @desc    Set workout
 // @route   POST /atlastRB/
 // @access  Private
-const setWorkout = (req, res) => {
+const setWorkout = (req, res) => {  
+    if(!req.body.text) {  //checking the body data in postman (this is made usable using middleware in server.js)
+        res.status(400).json({ message: 'Remember to add workout!'}) //essentially checking if no text in body send message and status err 400
+    } 
+
     res.status(200).json({ message:'Create a Workout'}) 
 }
 
