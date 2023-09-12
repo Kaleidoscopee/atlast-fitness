@@ -58,6 +58,7 @@ const deleteWorkout = asyncHandler(async (req, res) => {
     }
 
     await workout.deleteOne() //.remove is deprecated and had to use await goal.deleteOne() - https://stackoverflow.com/questions/53140118/node15893-deprecationwarning-collection-remove-is-deprecated-use-deleteone
+    // await workout.findByIdAndRemove() //can also use Ms.Stitts solution and try .findByIdAndRemove from the fruits routes lesson or .findByIdAndDelete
 
     res.status(200).json({ id: req.params.id }) 
 })
