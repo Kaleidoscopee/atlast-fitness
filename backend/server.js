@@ -1,7 +1,11 @@
 const express = require('express')  //this imports express to make a server
+const colors = require('colors') // importing colors
 const dotenv = require('dotenv').config() //imports .env
 const {errorHandler} = require('./middleware/errorMiddleware') //imports middleware 
+const connectDB = require('./config/db')
 const port = process.env.PORT || 3000 //variable holding the port number to listen for(now grabbing from env file OR 3000)
+
+connectDB() //calling from ./config/db above
 
 const app = express() //makes the instance of the express server that was imported on line 1
 
