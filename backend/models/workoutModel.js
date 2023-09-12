@@ -6,10 +6,9 @@ const workoutSchema = mongoose.Schema({
       required: true,
       ref: 'User',
     },
-    text: {
+    text: {                                               //the text entered in creating a workout
           type: String,
           required: [true, 'Please add a text value'],
-
         },
     }, 
     {

@@ -14,8 +14,8 @@ app.use(express.json()) //changes JSON coming in from the server into usable Jav
 app.use(express.urlencoded({ extended: false })) //similar to above but for urlEncoded
 
 //Middleware forcing the routes to include /atlastRB first before the rest of the route
-app.use('/atlastRB', require('./routes/atlastRoutes')) //makes the route atlastRB
-                                                       //& require is like an import so it's looking in the routes folder and then that file (atlastRoutes)
+app.use('/atlast/workoutbuilder', require('./routes/atlastRoutes')) //makes the route atlastRB //& require is like an import so it's looking in the routes folder and then that file (atlastRoutes)
+app.use('/atlast/users', require('./routes/atlastRoutes'))
 
 app.use(errorHandler) //use function in errorMiddleware file
 
