@@ -73,7 +73,13 @@ const loginUser = asyncHandler(async (req, res) => {
 // @route  GET /atlast/users/me
 // @access Private
 const getMe = asyncHandler(async (req, res) => {
-    res.json({ message: 'User data display' })
+    const {_id, name, email} = await User.findById(req.user.id)
+
+    res.status(200).json({
+        id: _id,
+        name,
+        email,  //now the user logged in will send these fields back on a GET call (this is now available thanks to the authorized token repredsented by the _id)
+    })
 })
 
 // Generate JWT
