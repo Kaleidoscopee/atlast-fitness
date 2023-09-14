@@ -1,6 +1,6 @@
 #Atlas-t Fitness
 
-
+<img width="1236" alt="fitness-app" src="https://github.com/Kaleidoscopee/atlast-fitness/assets/133397937/6dfe2a82-7351-4bce-b3e8-6affaf01fd5a">
 #Introduction
 The solution to all your workout needs. Atlas-t routine builder aims to be your go to routine builder. 
 
@@ -19,7 +19,8 @@ You Can (Soon to Be)
         >Updating  and editing your workout
         >Delete your workouts
 
-#Technologies Used 
+#Technologies Used
+
 
 -Frontend      
 React 
