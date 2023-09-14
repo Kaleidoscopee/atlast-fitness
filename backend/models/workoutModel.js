@@ -6,10 +6,25 @@ const workoutSchema = mongoose.Schema({
       required: true,
       ref: 'User',
     },
-    text: {                                               //the text entered in creating a workout
-          type: String,
-          required: [true, 'Please add a text value'],
-        },
+    workout: {
+      type: String,
+      required: [true, 'Add Workout'],
+                                         
+    },
+    description: {
+      type: String,
+      required: [true, 'Add Workout Description'],        
+    },
+    sets: {
+      type: Number,
+      required: [true, '# of Sets:'],
+      unique: true                                   //making sure the email field is unique and not one that is already registered to the database
+    },
+    reps: {
+      type: Number,
+      required: [true, '# of Reps:'],        
+    },
+
     }, 
     {
       timestamps: true,  //so you can log a time when posts are created (POST) and when they were updated (PUT) 

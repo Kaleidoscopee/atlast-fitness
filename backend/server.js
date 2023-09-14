@@ -20,5 +20,5 @@ app.use('/atlast/users', require('./routes/userRoutes')) //makes the route name 
 app.use(errorHandler) //use function in errorMiddleware file
 
 //PORT 3000
-app.listen(port, () => console.log       
+app.listen(process.env.port, () => console.log       
 (`listening to server on port ${port}`)) //tells the app to 'listen' to port which is the variable assigned 3000, then the string tells you what port it's listening for as well by using jsx injection for port
