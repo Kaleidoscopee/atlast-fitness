@@ -3,7 +3,7 @@ const colors = require('colors') // importing colors
 const dotenv = require('dotenv').config() //imports .env
 const {errorHandler} = require('./middleware/errorMiddleware') //imports middleware 
 const connectDB = require('./config/db')
-const port = process.env.PORT || 3000 //variable holding the port number to listen for(now grabbing from env file OR 3000)
+const port = process.env.PORT || 4000 //variable holding the port number to listen for(now grabbing from env file OR 3000)
 
 connectDB() //calling from ./config/db above
 
@@ -20,5 +20,5 @@ app.use('/atlast/users', require('./routes/userRoutes')) //makes the route name 
 app.use(errorHandler) //use function in errorMiddleware file
 
 //PORT 3000
-app.listen(process.env.port, () => console.log       
+app.listen(process.env.PORT || 3000, () => console.log       
 (`listening to server on port ${port}`)) //tells the app to 'listen' to port which is the variable assigned 3000, then the string tells you what port it's listening for as well by using jsx injection for port

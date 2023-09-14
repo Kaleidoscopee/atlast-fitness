@@ -1,10 +1,10 @@
 const asyncHandler = require('express-async-handler') //wrapping all your asyncs w/ the function in this file in this imported handler 
 
 const Workout = require('../models/workoutModel') //importing the schema from the models folder and the file workoutModel.js
-const User = require('../models/workoutModel')
+const User = require('../models/userModel')
 
 // @desc    Get workouts
-// @route   GET /atlastRB/
+// @route   GET /atlast/RB/
 // @access  Private
 const getWorkout = asyncHandler(async (req, res) => {
     const workoutFind = await Workout.find({ user: req.user.id }) //asynchronous so using await, also workouts is just a variable called to find the workouts within the Workout schema in the workoutModel folder
@@ -13,7 +13,7 @@ const getWorkout = asyncHandler(async (req, res) => {
 })
 
 // @desc    Set workout
-// @route   POST /atlastRB/
+// @route   POST /atlast/RB/
 // @access  Private
 const setWorkout = asyncHandler(async (req, res) => {  
     if(!req.body.text) {  //checking the body data in postman to see if NOT true of there being text show err response below (this is made usable using middleware in server.js)
@@ -29,7 +29,7 @@ const setWorkout = asyncHandler(async (req, res) => {
 })
 
 // @desc    Update workout
-// @route   PUT /atlastRB/:id
+// @route   PUT /atlast/RB/:id
 // @access  Private
 const updateWorkout = asyncHandler(async (req, res) => {
     const workout = await Workout.findById(req.params.id)
@@ -48,7 +48,7 @@ const updateWorkout = asyncHandler(async (req, res) => {
     }
 
     //Make sure the logged in user matches the goal user
-    if(global.user.toSring() !== user.id) {
+    if(global.user.toString() !== user.id) {
         res.status(401)
         throw new Error('User not authorized')
     }
@@ -62,7 +62,7 @@ const updateWorkout = asyncHandler(async (req, res) => {
 })
 
 // @desc    Delete workout
-// @route   DELETE /atlastRB/:id
+// @route   DELETE /atlast/RB/:id
 // @access  Private
 const deleteWorkout = asyncHandler(async (req, res) => {
     const workout = await Workout.findById(req.params.id)
@@ -79,7 +79,7 @@ const deleteWorkout = asyncHandler(async (req, res) => {
     }
 
     //Make sure the logged in user matches the goal user
-    if(global.user.toSring() !== user.id) {
+    if(global.user.toString() !== user.id) {
         res.status(401)
         throw new Error('User not authorized')
     }
