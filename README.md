@@ -45,6 +45,7 @@ npm
 
 #Getting Started 
 Trello Board - https://trello.com/b/1fOZPEB8/final-project
+Wireframe - ![Alt text](fitness-app.PNG)
 
 #Unsolved Problems
 
