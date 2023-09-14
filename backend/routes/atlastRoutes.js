@@ -6,6 +6,8 @@ const { getWorkout,
         deleteWorkout, 
 } = require('../controllers/atlastController') //inside the const is the atlastGET function from atlastControllers //require - so basically importing atlastController file from controllers folder
 
+const {protect} = require('../middleware/authMiddleware')
+
 //ROUTES (Starting with CRUD - Create Read Update Delete)
 // // GET = R(Read) 
 // router.get('/', (req, res) => {  // you only need the ('/') bc the route was already specified inn servers app.use //working test router(returns the welcome string)
@@ -36,8 +38,8 @@ const { getWorkout,
 
 //making the routes even cleaner by chaining the shared routes from above ('/') && ('/:id')
 //this is get and post routes in one line
-router.route('/').get(getWorkout).post(setWorkout)
+router.route('/').get(protect, getWorkout).post(protect, setWorkout)
 //this is update and delete routes on one line (don't forget the :id)
-router.route('/:id').put(updateWorkout).delete(deleteWorkout)
+router.route('/:id').put(protect, updateWorkout).delete(protect, deleteWorkout)
 
 module.exports = router

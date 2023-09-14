@@ -1,12 +1,13 @@
 const asyncHandler = require('express-async-handler') //wrapping all your asyncs w/ the function in this file in this imported handler 
 
 const Workout = require('../models/workoutModel') //importing the schema from the models folder and the file workoutModel.js
+const User = require('../models/workoutModel')
 
 // @desc    Get workouts
 // @route   GET /atlastRB/
 // @access  Private
 const getWorkout = asyncHandler(async (req, res) => {
-    const workoutFind = await Workout.find() //asynchronous so using await, also workouts is just a variable called to find the workouts within the Workout schema in the workoutModel folder
+    const workoutFind = await Workout.find({ user: req.user.id }) //asynchronous so using await, also workouts is just a variable called to find the workouts within the Workout schema in the workoutModel folder
 
     res.status(200).json(workoutFind) //200 for okay status and telling it to turn the value of workouts into json
 })
@@ -38,6 +39,20 @@ const updateWorkout = asyncHandler(async (req, res) => {
         throw new Error('Workout not found')
     }
 
+    const user = await User.findById(req.user.id)
+
+    //Check for user
+    if(!user) {
+        res.status(401)
+        throw new Error('User not found')
+    }
+
+    //Make sure the logged in user matches the goal user
+    if(global.user.toSring() !== user.id) {
+        res.status(401)
+        throw new Error('User not authorized')
+    }
+
     const updatedWorkout = await Workout.findByIdAndUpdate(req.params.id, req.
         body, {
             new: true,
@@ -55,6 +70,18 @@ const deleteWorkout = asyncHandler(async (req, res) => {
     if(!workout){
         res.status(400)
         throw new Error('Workout not found')         //same error logic taken from updateWorkout function
+    }
+
+    //Check for user
+    if(!user) {
+        res.status(401)
+        throw new Error('User not found')
+    }
+
+    //Make sure the logged in user matches the goal user
+    if(global.user.toSring() !== user.id) {
+        res.status(401)
+        throw new Error('User not authorized')
     }
 
     await workout.deleteOne() //.remove is deprecated and had to use await goal.deleteOne() - https://stackoverflow.com/questions/53140118/node15893-deprecationwarning-collection-remove-is-deprecated-use-deleteone
