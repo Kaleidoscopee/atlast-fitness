@@ -1,6 +1,6 @@
 #Atlas-t Fitness
 
-<img width="1236" alt="fitness-app" src="https://github.com/Kaleidoscopee/atlast-fitness/assets/133397937/6dfe2a82-7351-4bce-b3e8-6affaf01fd5a">
+
 #Introduction
 The solution to all your workout needs. Atlas-t routine builder aims to be your go to routine builder. 
 
@@ -46,7 +46,8 @@ npm
 
 #Getting Started 
 Trello Board - https://trello.com/b/1fOZPEB8/final-project
-Wireframe - ![Alt text](fitness-app.PNG)
+<img width="1236" alt="fitness-app" src="https://github.com/Kaleidoscopee/atlast-fitness/assets/133397937/6dfe2a82-7351-4bce-b3e8-6affaf01fd5a">
+<img width="751" alt="ERD" src="https://github.com/Kaleidoscopee/atlast-fitness/assets/133397937/28a8522e-11a6-45c7-a57e-411863ee4736">
 
 #Unsolved Problems
 
