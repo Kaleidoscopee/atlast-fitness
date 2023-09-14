@@ -1,8 +1,11 @@
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Home from './pages/Home'
-import Navbar from './components/Navbar'
 
+import Navbar from './components/Navbar'
+import Home from './pages/Home'
+import Login from './pages/Login'
+import Register from './pages/Register'
+import WorkoutList from './pages/WorkoutList'
 
 function App() {
 
@@ -14,6 +17,10 @@ function App() {
           <div className="pages">
             <Routes>
               <Route path="/" element={<Home/>}/>
+              <Route path="/login" element={<Login />}/>
+              <Route path="/register" element={<Register />}/>
+              <Route path="/workouts" element={<WorkoutList />}/>
+              <Route path="/workouts/add" element={<AddWorkout />}/>
             </Routes>
           </div>
         </BrowserRouter>

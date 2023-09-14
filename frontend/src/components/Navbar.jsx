@@ -6,16 +6,20 @@ const Navbar = () => {
     return (
         <header>
             <div className="container">
-                <Link to="/">
-                    <h1>Atlas-t</h1> {/*home page link */}
-                </Link>
-                <Link to="/login">
-                    <h1>Login</h1> {/*login page link */}
-                </Link>
-                <Link to="/register">
-                    <h1>Register</h1> {/*register page link */}
-                </Link>
-
+                <ul>
+                    <li>
+                        <Link to="/"><h1>Atlas-t</h1> {/*home page link */}</Link>
+                    </li>
+                    <li>
+                        <Link to="/login"><h1>Atlas-t</h1> {/*home page link */}</Link>
+                    </li>
+                    <li>
+                        <Link to="/register"><h1>Atlas-t</h1> {/*home page link */}</Link>
+                    </li>
+                    <li>
+                        <Link to="/workouts"><h1>Atlas-t</h1> {/*home page link */}</Link>
+                    </li>
+                </ul>
             </div>
         </header>
     )
